@@ -10,7 +10,9 @@ export const wixClientServer = async () => {
     const cookieValue = cookieStore.get("refreshToken")?.value || "{}";
     console.log("Parsed refreshToken cookie:", cookieValue);
     refreshToken = JSON.parse(cookieValue);
-  } catch (e) {}
+  } catch (err) {
+    throw new Error(err instanceof Error ? err.message : "Unknown error");
+  }
 
   const wixClient = createClient({
     modules: {

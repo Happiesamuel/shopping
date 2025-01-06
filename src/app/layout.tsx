@@ -3,7 +3,8 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import dynamic from "next/dynamic";
 import { Inter } from "next/font/google";
-import { WIxClientProvider } from "@/context/WixContext";
+import { WixClientProvider } from "@/context/WixContext";
+import App from "@/../App";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,21 +21,21 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const App = dynamic(() => import("@/../App"), { ssr: false });
+  // const App = dynamic(() => import("@/../App"), { ssr: true });
   return (
     <html lang="en">
       <body
         className={`${inter.className} 
             flex-col bg-white my-0 mx-auto max-w-[144rem]  min-h-screen antialiased`}
       >
-        <WIxClientProvider>
+        <WixClientProvider>
           <App>
             <>
               <Header />
               {children}
             </>
           </App>
-        </WIxClientProvider>
+        </WixClientProvider>
       </body>
     </html>
   );

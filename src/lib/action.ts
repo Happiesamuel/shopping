@@ -7,8 +7,13 @@ export async function getProducts() {
   const data = await res.products.queryProducts().find();
   return data;
 }
+export async function getCategories() {
+  const res = await wixClientServer();
+  const data = await res.collections.queryCollections().find();
+  return data;
+}
 
-export async function getShoes(limit = 20, id: string) {
+export async function getSingleCategory(limit = 20, id: string) {
   const res = await wixClientServer();
   const data = await res.products
     .queryProducts()

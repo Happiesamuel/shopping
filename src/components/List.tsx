@@ -1,16 +1,16 @@
-import { getShoes } from "@/lib/action";
 import { products } from "@wix/stores";
 import Image from "next/image";
 import React from "react";
 import DOMPurify from "isomorphic-dompurify";
+import Link from "next/link";
+import { getSingleCategory } from "@/lib/action";
 
-export default async function List() {
-  const data = await getShoes(50, process.env.MEN_SHOES_CATEGORY_ID!);
-  // console.log(data, "sam");
+export default async function List({ id }: { id: string }) {
+  const data = await getSingleCategory(50, id);
   return (
     <div>
       {data.items.map((x: products.Product) => (
-        <div key={x._id}>
+        <Link href={`/product/${x._id}`} key={x._id}>
           <h1>{x.name}</h1>
           <Image
             quality={50}
@@ -21,13 +21,13 @@ export default async function List() {
             alt="img"
           />
 
-          <Image
-            quality={50}
+          {/* <Image
+            // quality={50}
             src={x.media?.items?.at(1)?.image?.url || "/jolt.png"}
             width={200}
             height={200}
             alt="img"
-          />
+          /> */}
           <p>{x?.price?.price}</p>
           <div
             className=""
@@ -39,7 +39,7 @@ export default async function List() {
               ),
             }}
           ></div>
-        </div>
+        </Link>
       ))}
     </div>
   );

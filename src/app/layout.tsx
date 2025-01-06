@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/layout/Header";
-import dynamic from "next/dynamic";
 import { Inter } from "next/font/google";
 import { WixClientProvider } from "@/context/WixContext";
 import App from "@/../App";

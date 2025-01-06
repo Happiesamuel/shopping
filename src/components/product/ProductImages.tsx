@@ -27,7 +27,7 @@ export default function ProductImages({ product }: { product: Product }) {
       </div>
       <div className="w-full h-[300px] relative aspect-square">
         <Image
-          quality={5}
+          // quality={5}
           src={src}
           alt="big-img"
           fill

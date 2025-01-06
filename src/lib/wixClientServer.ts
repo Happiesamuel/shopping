@@ -8,7 +8,6 @@ export const wixClientServer = async () => {
   try {
     const cookieStore = await cookies();
     const cookieValue = cookieStore.get("refreshToken")?.value || "{}";
-    console.log("Parsed refreshToken cookie:", cookieValue);
     refreshToken = JSON.parse(cookieValue);
   } catch (err) {
     throw new Error(err instanceof Error ? err.message : "Unknown error");

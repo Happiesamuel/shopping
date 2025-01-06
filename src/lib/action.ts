@@ -7,6 +7,15 @@ export async function getProducts() {
   const data = await res.products.queryProducts().find();
   return data;
 }
+export async function getProduct(id: string) {
+  try {
+    const res = await wixClientServer();
+    const data = await res.products.queryProducts().eq("_id", id).find();
+    return data;
+  } catch (err) {
+    throw new Error(err instanceof Error ? err.message : "Unknown error");
+  }
+}
 export async function getCategories() {
   const res = await wixClientServer();
   const data = await res.collections.queryCollections().find();
@@ -22,3 +31,5 @@ export async function getSingleCategory(limit = 20, id: string) {
     .find();
   return data;
 }
+
+//collections.getCollectionsBySlug(search) to search category

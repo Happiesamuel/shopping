@@ -3,9 +3,7 @@ type ProductCategory = {
   category: string;
   thumbnail: string;
 };
-type Product = ProductCategory[] & {
-  category: string;
-};
+
 type SearchData = {
   id: number;
   img: string;
@@ -23,3 +21,16 @@ interface ItemList {
   description: string;
   images: string[];
 }
+
+type Item = {
+  _id: string;
+  image: { url: string };
+};
+
+type Product = {
+  media: {
+    items: Item[];
+  };
+  name: string;
+  description: string;
+};

@@ -5,7 +5,7 @@ import React from "react";
 import DOMPurify from "isomorphic-dompurify";
 
 export default async function List() {
-  const data = await getShoes(20, process.env.MEN_SHOES_CATEGORY_ID!);
+  const data = await getShoes(50, process.env.MEN_SHOES_CATEGORY_ID!);
   // console.log(data, "sam");
   return (
     <div>
@@ -20,16 +20,7 @@ export default async function List() {
             height={200}
             alt="img"
           />
-          <div className="relative aspect-square h-[200px] w-[200px]">
-            <Image
-              placeholder="blur"
-              blurDataURL={x.media?.mainMedia?.image?.url || "/jolt.png"}
-              fill
-              className=" w-full"
-              alt="img"
-              src={x.media?.mainMedia?.image?.url || "/jolt.png"}
-            />
-          </div>
+
           <Image
             quality={50}
             src={x.media?.items?.at(1)?.image?.url || "/jolt.png"}

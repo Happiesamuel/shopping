@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import { Inter } from "next/font/google";
-import App from "@/../App";
+import dynamic from "next/dynamic";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,7 +19,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // const App = dynamic(() => import("@/../App"), { ssr: true });
+  const App = dynamic(() => import("@/../App"), { ssr: true });
   return (
     <html lang="en">
       <body

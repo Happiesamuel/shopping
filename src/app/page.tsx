@@ -1,5 +1,4 @@
 import { Suspense } from "react";
-import List from "@/components/List";
 import Categories from "@/components/Categories";
 export const dynamic = "force-dynamic";
 export default async function page() {

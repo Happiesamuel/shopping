@@ -20,7 +20,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const App = dynamic(() => import("@/../App"), { ssr: true });
+  const App = dynamic(() => import("@/../App"), { ssr: false });
   return (
     <html lang="en">
       <body

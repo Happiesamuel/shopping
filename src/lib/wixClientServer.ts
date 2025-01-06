@@ -5,9 +5,14 @@ import { cookies } from "next/headers";
 
 export const wixClientServer = async () => {
   let refreshToken;
+
   try {
+    // Use await to resolve cookies() since it now returns a Promise
     const cookieStore = await cookies();
-    refreshToken = JSON.parse(cookieStore.get("refreshToken")?.value || "{}");
+    const cookieValue = cookieStore.get("refreshToken")?.value || "{}";
+
+    // Parse the refreshToken value
+    refreshToken = JSON.parse(cookieValue);
   } catch (e) {
     throw error(e);
   }

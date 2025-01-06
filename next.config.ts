@@ -31,7 +31,7 @@ const nextConfig: NextConfig = {
     ],
 
     // Alternative domain whitelisting
-    domains: ["static.wixstatic.com"], // Add additional domains here
+    domains: ["static.wixstatic.com", "cdn.dummyjson.com"], // Add additional domains here
 
     // Cache control
     minimumCacheTTL: 60, // Cache external images for 60 seconds

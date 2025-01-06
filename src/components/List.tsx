@@ -37,7 +37,7 @@ export default async function List() {
             height={200}
             alt="img"
           />
-          <p>{x.price?.price}</p>
+          <p>{x?.price?.price}</p>
           <div
             className=""
             dangerouslySetInnerHTML={{

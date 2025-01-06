@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import { Inter } from "next/font/google";
-import { WixClientProvider } from "@/context/WixContext";
 import App from "@/../App";
 
 export const metadata: Metadata = {
@@ -27,14 +26,12 @@ export default function RootLayout({
         className={`${inter.className} 
             flex-col bg-white my-0 mx-auto max-w-[144rem]  min-h-screen antialiased`}
       >
-        <WixClientProvider>
-          <App>
-            <>
-              <Header />
-              {children}
-            </>
-          </App>
-        </WixClientProvider>
+        <App>
+          <>
+            <Header />
+            {children}
+          </>
+        </App>
       </body>
     </html>
   );

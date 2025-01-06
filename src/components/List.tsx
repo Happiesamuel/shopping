@@ -6,7 +6,7 @@ import DOMPurify from "isomorphic-dompurify";
 
 export default async function List() {
   const data = await getShoes(20, process.env.MEN_SHOES_CATEGORY_ID!);
-  console.log(data, "sam");
+  // console.log(data, "sam");
   return (
     <div>
       {data.items.map((x: products.Product) => (

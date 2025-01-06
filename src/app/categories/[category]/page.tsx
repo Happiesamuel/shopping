@@ -1,12 +1,15 @@
 import List from "@/components/List";
 import React, { Suspense } from "react";
 
-type PageProps = {
-  params: { category: string };
-};
+// export const generateStaticParams = () => {
+//     return photos.map(({ id }) => ({
+//       id: String(id),
+//     }));
+//   };
+export type paramsType = Promise<{ category: string }>;
 
-const page = ({ params }: PageProps) => {
-  const { category } = params;
+const page = async ({ params }: { params: paramsType }) => {
+  const { category } = await params;
   return (
     <div>
       <h1>Category</h1>

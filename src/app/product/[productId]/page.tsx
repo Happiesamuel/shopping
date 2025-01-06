@@ -1,10 +1,8 @@
 import React from "react";
-type PageProps = {
-  params: { productId: string };
-};
 
-const page = ({ params }: PageProps) => {
-  const { productId } = params;
+export type paramsType = Promise<{ productId: string }>;
+const page = async ({ params }: { params: paramsType }) => {
+  const { productId } = await params;
   console.log(productId);
   return <div>page</div>;
 };
